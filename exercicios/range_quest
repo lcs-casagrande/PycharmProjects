@@ -1,0 +1,59 @@
+from gtts import gTTS
+from random import randint
+from time import sleep
+from translate import Translator
+from playsound import playsound
+
+audio = 'speech.mp3'
+language = 'en'
+sort = ['What do you like to do in your spare time?',
+'How do you spend your free time',
+'What are your hobbies?',
+'What are you passionate about?',
+'Where do you see yourself in 5 years?',
+'How do you see yourself in the future?',
+'How do you see yourself in 5 years? ',
+'What are your goals for the future? ',
+'What are three things your former manager would like you to improve on? ',
+'What were the last feedbacks you received at work? ',
+'What are your strengths and your weakness? ',
+'If I called your boss and asked him what is an area that you could improve on, what would he say? ',
+'How would you describe yourself? ',
+'Tell me about yourself? ',
+'What can you offer us that someone else can not? ',
+'Why should we hire you? ',
+'What makes you unique? ',
+'What is your leadership style? ',
+'Tell me about a difficult situation you have faced with your team and how you tackled it. ',
+'Tell me about your professional background? ',
+'Tell me about your academic background? ',
+'What experiences and skills make you a great candidate for this position? ',
+'Why do you think you are the ideal candidate for this position? ',
+'What made you apply for this position? ',
+'What was the last book you’ve read? Did you enjoy it? Why? Tell me about the book. ',
+'Which newspaper do you usually read? ',
+'Have you ever traveled abroad? ',
+'Have you ever worked abroad? ',
+'Have you ever studied abroad? ',
+'How did you learn English? ',
+'Do you have questions about this company? ',
+'Do you have questions about this position? ',
+'Do you have any questions for me? ',
+]
+tamanho = len(sort)
+#print(tamanho)
+n = randint(1,tamanho+1)
+quest = sort[n]
+print(quest)
+
+sp = gTTS (text= quest, lang= language, slow=False)
+sp.save(audio)
+from pydub import AudioSegment
+from pydub.playback import play
+song = AudioSegment.from_wav("C:\Users\User\PycharmProjects\exercicios\speech.mp3" )
+print('playing sound using  pydub')
+play(song)
+sleep(10)
+translator = Translator(from_lang = 'english',to_lang='pt')
+result = translator.translate('quest')
+print(result)
