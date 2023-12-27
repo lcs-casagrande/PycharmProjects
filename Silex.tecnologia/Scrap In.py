@@ -16,7 +16,7 @@ sleep(.3)
 email = navegador.find_element(By.ID,'session_key')
 email.send_keys('5511974645103')
 senha = navegador.find_element(By.ID,'session_password')
-senha.send_keys('balotelli9')
+senha.send_keys('xxxxx')
 senha.submit()
 
 sleep(3)
